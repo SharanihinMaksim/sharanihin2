@@ -167,6 +167,12 @@ compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose
 
 ![image](https://github.com/user-attachments/assets/90140b9a-f824-4553-888b-e26868ce6e13)
 
+Если вдруг при создании папки или каталога допускаете ошибку, его можно переименовать командой 
+
+            sudo mv "старое имя" "новое имя"
+
+
+
 
 
 
