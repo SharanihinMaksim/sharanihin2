@@ -207,19 +207,96 @@ compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose
 
 ![image](https://github.com/user-attachments/assets/ae46239a-aad9-4736-ae21-af99505c791f)
 
+#Прометей
+
+копирую конфигурационные файлы с github командой
+
+      sudo git clone https://github.com/SharanihinMaksim/sharanihin2.git
+
 ![image](https://github.com/user-attachments/assets/90140b9a-f824-4553-888b-e26868ce6e13)
 
-Если вдруг при создании папки или каталога допускаете ошибку, его можно переименовать командой 
+проверяем что репозиторий успешно установлен
 
-            sudo mv "старое имя" "новое имя"
+      ls
 
+![image](https://github.com/user-attachments/assets/9d53aed5-a268-473d-b426-7a1b3fa54b91)
 
+копируем конфигурационный файл докера в папку с Grafan
 
+      cp docker-compose.yaml /home/fedor/grafana_stack_for_docker/
 
+![image](https://github.com/user-attachments/assets/0453a37c-68c4-43db-ad2e-1941caff51b4)
 
+Тоже самое проделываем prometheus
 
+      cp prometeus.yaml /home/fedor/grafana_stack_for_docker/
 
+![image](https://github.com/user-attachments/assets/f08387c5-44f6-41aa-b170-370ea09dcc33)
 
+переименовываем файл конфигурации с prometeus.yaml на prometheus.yaml (если в его названии была ошибка)
+
+используя команду       
+      
+      mv prometeus.yaml prometheus.yaml
+
+переносим конфигурационный файл prometheus.yaml в конфиг Grafana
+
+используя команду 
+
+      mv prometheus.yaml /mnt/common_volume/swarm/grafana/config
+
+![image](https://github.com/user-attachments/assets/3eee9b7f-dd65-4da0-9bcf-231d467f04df)
+
+Проверяем наличие 
+      
+      ls
+
+![image](https://github.com/user-attachments/assets/4bc9820e-9303-424a-a4ab-ae851fb45efd)
+
+запускаем docker compose в фоновом режиме
+
+используя команду 
+            
+      sudo docker compose up -d
+
+![image](https://github.com/user-attachments/assets/22001310-4335-4031-9779-521ffe2d7679)
+
+переходим на сайт localhost:3000
+
+-Пользователь и Пароль GRAFANA: admin
+-Код графаны: 3000
+-Код прометеуса: http://prometheus:9090
+
+# В меню выбираем вкладку Dashboards и создаем Dashboard
+
+![image](https://github.com/user-attachments/assets/a545de41-d71c-40a2-b199-4f814e00bc07)
+
+Заполняем данные в открывшемся окне
+
+# Пункт Connection
+
+  -http://prometheus:9090
+  -Пункт Authentication
+
+# Базовая аутентификация
+  -Пользователь: admin
+  -Пароль: admin
+
+#Нажимаем на Save & test и должно показывать зелёную галочку
+
+в меню выбираем вкладку Dashboards и создаем Dashboard
+
+#жмем кнопку "Import dashboard"
+
+нажимаем кнопку +Добавить визуализацию, а затем «Настроить новый источник данных»
+
+выбираем Prometheus
+
+В пункт Find and import dashboards for common applications at grafana.com/dashboards:
+
+вписываем 1860
+
+![image](https://github.com/user-attachments/assets/7f1a547c-1b86-4c57-9f9e-bc070cb97af8)
 
 
 
