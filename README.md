@@ -145,7 +145,31 @@ compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose
 
 ![image](https://github.com/user-attachments/assets/9317698f-0546-4c48-b3f2-738872fe2a47)
 
-перезапысываем существующий файл grafana.yaml в файл docker-compose.yaml командой "mv grafana.yaml docker-compose.yaml"
+перезапысываем существующий файл grafana.yaml в файл docker-compose.yaml командой             "mv grafana.yaml docker-compose.yaml"
+
+запускаем       sudo docker compose up -d
+
+![image](https://github.com/user-attachments/assets/30a2fa7d-1d94-4e90-855d-103127887e88)
+
+Открываем браузер и в поиске пишем              
+      
+      localhost:3000
+
+      успешный запуск 
+
+тут у меня уже введен логин и пароль, но при первом входе потребует логин и пароль
+
+![image](https://github.com/user-attachments/assets/15f34c73-8b94-4dc1-9e9c-766ac5bca9b9)
+
+Для перехода в конфигурационный файл докера можно с помощью команды 
+      
+      vi docker-compose.yaml
+
+для выхода пишем
+
+      :wq
+
+      
 
 ![image](https://github.com/user-attachments/assets/2cb2f0ad-67ce-4454-bed3-c60cd493193b)
 
@@ -153,17 +177,23 @@ compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose
 
 ![image](https://github.com/user-attachments/assets/4e202152-62b4-4e60-aa5b-33fa00d8a23c)
 
-Пишем команду sudo docker compose stop
+Пишем команду 
+
+      sudo docker compose stop
+
 Команда "stop" используется для остановки всех контейнеров, определённых в файле docker-compose.yml, который находится в текущей директории. 
 
 ![image](https://github.com/user-attachments/assets/9f476a9b-3aa5-4050-8844-25adf5afeb2c)
 
 Чтобы продолжить дальше выполнять команды нужно снова запустить 
+           
             sudo docker compose up -d
 
 ![image](https://github.com/user-attachments/assets/264b1c9f-e982-40f5-9382-b98833c08392)
 
-Дальше команда sudo docker compose down используется для остановки и удаления контейнеров. 
+Дальше команда используется для остановки и удаления контейнеров. 
+      
+      sudo docker compose down
 
 ![image](https://github.com/user-attachments/assets/0e0291fc-ff0a-40cd-a2e9-c898206b47fa)
 
@@ -171,7 +201,9 @@ compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose
 
 ![image](https://github.com/user-attachments/assets/0d9f09cc-cd3d-470b-90bf-ab9cb02bb130)
 
-Команда "sudo docker compose ps" отображает информацию о контейнерах, определенных в вашем файле docker-compose.yml, включая их статус
+Команда отображает информацию о контейнерах, определенных в вашем файле docker-compose.yml, включая их статус
+
+      sudo docker compose ps
 
 ![image](https://github.com/user-attachments/assets/ae46239a-aad9-4736-ae21-af99505c791f)
 
